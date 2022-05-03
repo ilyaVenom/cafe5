@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,
+		shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+	crossorigin="anonymous"></script>
+  <script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+	integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+	crossorigin="anonymous"></script>
+  <script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+	integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+	crossorigin="anonymous"></script>
+  <script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/jcanvas.js"
+	crossorigin="anonymous"></script>
+     <!-- add the css back in the style section below: needs work, remove the js style.  -->
+      <!-- change the font in the header:  -->
+      <!-- use a locally downloaded font and its css ? is it right ?  not need ling, if had it downloaded
+    	/* another locally downloaded font */-->
+      <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=My+Soul&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=My+Soul&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- adding a different font 
+-->
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=My+Soul&family=Pacifico&family=Syncopate&family=Ultra&display=swap" rel="stylesheet">
+<style> 
+@font-face {
+    font-family: antique-heritage;
+		src: url(antique-heritage-font/AntiqueHeritagePersonalUseRegular-9Y9Wy.otf);
+	}
+  h1{
+    font-family: 'My Soul', cursive;         
+    font-family: 'Pacifico', cursive;}
+	h2 {
+    font-family: antique-heritage;
+		font-size: 10px;
+	}
+	.green {
+		color: green;
+		background-color: #f0fff0;
+		border-radius: 15px;
+		padding: 10px;
+		border: 1px solid brown;
+	}
+    body {font-family: "Free Serif"; color:black;}
+    .aTable { 
+              border:1px solid black; 
+              background-color: beige; 
+              text-align: center;}
+    .poisonous {border-top: 2px solid red; border-bottom: 2px solid red; 
+                border-left: 2px solid  blue; border-right: 2px solid blue;}
+    .inedible {border: 2px solid green;}
+    .Multi {color:green;
+
+      font-family: 'Syncopate', sans-serif;}
+    
+      .lingual {color:red;
+        font-family: 'My Soul', cursive;
+        font-family: 'Pacifico', cursive;
+        font-family: 'Syncopate', sans-serif;
+        font-family: 'Ultra', serif;
+      }
+    canvas {
+			border: 2px solid plum;
+		}
+    .move {}
+    .hover {}
+    p{
+    font-family: 'My Soul', cursive;}
+    h3 {
+      font-family: 'Architects Daughter', cursive;
+    }
+
+    /* media effect  added in from a media example ?*/
+		@media only screen and (max-width: 700px) {
+			p {
+				font-family: Arial;
+				background-color: lightblue;
+			}
+			form {
+				display: none;
+			}
+		}
+		@media only screen and (orientation: portrait) {
+			body {
+				background-color: orange;
+			}
+    }
+  </style>
+  <title>Munshn Lunshn</title>
+</head>
+<body Id = "body1">
+  <div class='container-fluid'>    
+    </div> <!-- container-fluid -->
+<h1>Welcome to the High Times of Munshn Lunshn &#x2122;!</h1>
+<br>
+<h3>Our logo!</h1>
+<br>
+<canvas id='myCanvas1' width="100" height="100">
+</canvas>
+<p>All our clients are served right!<br><mark>See this website is under construction, as is our cafe.</mark></p>
+<h2>See the menu</h2>
+<p> Click on a word for details </p>
+<!-- not the get way tho -->
+<!-- <form method ="get"> -->
+ <!-- ajax doesn't need a form 
+in css it was:
+<table class = 'Atable'>
+  "offset-6 col-6"
+  and he used stingify for 
+  function displayRow(entry){// entry should be a JSON object
+    let answer = JSON.stringify(entry,null, ' ');
+    console.log(answer);
+    $("#result").html($("#result").html()) + '<br>' + answer);
+  }; // display row ? try it
+-->
+  <div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-5 col-md-7 col-sm-12">
+  <table class="table table-striped table-bordered table-hover ">
+  <thead class='table-dark'>
+  <tr><th> Please </th><th> </th> <th> Order </th> <th> </th> <th> Something </th> <th>And go away!</th></tr>
+    <tr>
+<!--must remove php, and reformate using php, and have js with .js and use the 
+     the menu next and for -> maybe change the for pets ? each td need 3 funcs: // make all the other this the names of it ! -->
+      <td 
+      onmouseover="hover(this)" Id = "snacks" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('snacks')" 
+      >snacks </td> <td>&#x1F34E;</td> 
+      <td
+      onmouseover="hover(this)" Id = "drinks" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('drinks')"
+      > drinks </td> <td>&#x1F378;</td>
+      <td
+      onmouseover="hover(this)" Id = "mains" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('mains')"
+      >mains </td> <td>&#x1F357;</td>
+    </tr>
+    <tr>
+      <td
+      onmouseover="hover(this)" Id = "deserts" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('deserts')"
+      >deserts </td> <td>&#x1F382;</td>
+      <td
+      onmouseover="hover(this)" Id = "for_kids" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('for kids')"
+      >for kids </td> <td>&#x1F37C;</td>
+      <td
+      onmouseover="hover(this)" Id = "for_pets" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('for pets')"
+      >for pets </td> <td>&#x1F415;</td>
+    </tr>
+    <tr>
+      <td
+      onmouseover="hover(this)" Id = "TakeOut" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('take out')"
+      >take out </td> <td>&#x1F355;</td>
+       <td
+      onmouseover="hover(this)" Id = "inedible" 
+      onmouseout="mousemove(this)"
+      onclick = "myClick('inedible')" 
+       class = 'inedible'>inedible </td> <td> &#x1F388;</td>
+    <td
+    onmouseover="hover(this)" Id = "poisonous" 
+    onmouseout="mousemove(this)"
+    onclick = "myClick('poisonous')" 
+    class = 'poisonous'>poisonous</td> <td> &#x2620;</td>
+    </tr>
+
+    
+  </table>
+
+
+
+</div>
+</div>
+</div>
+  <div id = "Inner"> </div>
+<!-- tip ? button with bootstrap and javastrap  -->
+  <!-- displays the total bill and tips from 15 - 20% * like his example: 
+  * and make it to where the tip button is a little lower should unhide the inputbar-->
+  <br/>
+  <div class="offset-6 col-6">
+  <button type="button" class="btn btn-success btn-sm" onclick = "ClickForBtn()" >Compute tip</button>
+</div>
+  <br/>
+
+  <br/>
+
+  <div class="offset-6 col-6">
+  <tr>
+  <button type="button" class="btn btn-danger btn-sm"
+    onclick = "GoZero()" > reset</button>
+  </div>
+   <!-- next fill in the input field when the btn is click
+  and after enter is hit or someone
+  fix try the result from add adding the numbers:
+  -->
+  <div id = "Bill"> </div>
+<!-- try to get rid of some and try the Jquery:
+  <p>bill: </p>
+  <p id = "totalBill" > </p>
+-->
+  <span class = 'collapse' id = 'inputStuff'> Please enter your total bill to see the tipping options below: <input \
+  type='number' id='inputField' onkeyup='addTip();'/>
+</span>
+  <br>
+  <span id='Tips'></span>
+  <br/>
+  <br/>
+  <h2>We are hiring!</h2>
+  <p>We are looking for employees who are</p>
+<ol>
+<li> Reliable </li>
+<li> Prompt </li>
+<li> Friendly
+  <ul>
+    <li> Able to deal with <i>obnoxious customers</i></li>
+    <li> Able to deal with <i>critical managers</i></li>
+    <li> Able to cater to <i>the chef's whims</i></li>
+  </ul>
+</li>
+<li><span class = "Multi">Multi</span><span class = "lingual">lingual</span> </li>
+<li> <b>Healthy</b> 
+</li>
+</ol>
+<script>
+    function hover(onSnacks){
+      onSnacks.style.backgroundColor = 'green'; 
+      onSnacks.style.color = 'white';
+      };
+    // or try the jquery way:
+    //$(`#${onSnack}`).css({backgroundColor: 'beige', color: 'black'});
+    function mousemove(onSnacks){
+      onSnacks.style.backgroundColor = 'beige';
+      onSnacks.style.color = 'black';
+      }
+    function SeeIt(){
+      var SeeIt = document.getElementById('SeeIt');
+      SeeIt.style.border = "solid black";
+      SeeIt.style.backgroundColor = "beige";
+      SeeIt.style.textAlign = "left";
+      document.getElementById('redline').style.color = "red";
+    }
+    async function myClick(someItems) { 
+ 
+  let transaction =myDB.transaction(["aTable"], "readonly")
+  let table = transaction.objectStore("aTable");
+  console.log(table);
+	let request = table.get(someItems); // the key is the parameter !!
+    // the put needs a primary key ?
+	request.onsuccess = function (event) {
+   // reminder remove console logs after
+    // remove display row and change it to put the 
+    json_stuff(event.target.result);
+    // the update accesses function
+    
+   
+    CountingAccesses(event.target.result.category); // adding dot category notifies the key value in the json obj
+		//displayRow(event.target.result); // if the request is a success, then I want it to do something ?!
+	}; // onsuccess
+  };
+  // make another function for reset btn:
+async function GoZero() {  // different from myClick
+let transaction =myDB.transaction(["aTable"], "readonly")
+let table = transaction.objectStore("aTable");
+ let request = table.getAll(); // the key is the parameter !!
+   // the put needs a primary key ?
+ request.onsuccess = function (event) {
+  console.log(event.target.result);
+   // remove display row and change it to put the 
+   // the update accesses function
+   // ie:
+   /*
+   for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+goes through each cat, call reset for each and pass in for each
+   */
+  // this part is busted too ? fix !
+    for (let category = 0 ; i < category.length ; category++ ) {
+    category.reset = category[i] + "<br>";
+
+   }
+
+   reset(event.target.result.category);
+   //displayRow(event.target.result); // if the request is a success, then I want it to do something ?!
+ }; // onsuccess
+ };
+  // another function to increment the accesses:
+  // a functions to update accesses:
+  function CountingAccesses(category){ // e stands for an event
+    // define the relation
+    var relation = "aTable";
+    const connection = window.indexedDB.open(myDBName, serial);
+    connection.onsuccess = (e) => { // e it has to be () b/c the result is being stored in e
+      const database = e.target.result;
+      const objectStore = database.transaction([relation], "readwrite").objectStore(relation);
+      const request = objectStore.get(category);
+      console.log(request);
+      request.onsuccess = (e) => {
+        Number =e.target.result.accesses;
+        Number += 1;
+        objectStore.put({"category": category, "accesses": Number, "details": e.target.result.details}); // e is the result.
+      }
+    }
+  }
+  // reset function:
+  function reset(category){ // e stands for an event
+    // define the relation
+    var relation = "aTable";
+    
+  const connection = window.indexedDB.open(myDBName, serial);
+    connection.onsuccess = (e) => { // e it has to be () b/c the result is being stored in e
+      const database = e.target.result;
+      const objectStore = database.transaction([relation], "readwrite").objectStore(relation);
+      const request = objectStore.get(category);
+      console.log(request);
+      request.onsuccess = (e) => {
+        Number =e.target.result.accesses;
+        Number = 0;
+        objectStore.put({"category": category, "accesses": Number, "details": e.target.result.details}); // e is the result.
+      }
+    }
+  }
+        // need to parse after post:
+       
+      // fill in what's inside it.  hide, until user clicks on it
+		 // getDate // * tried to just use javascript, but messed it up and went back to using Jquery
+
+    // another function for the jsonObjs
+function json_stuff(parsed){
+        let html = document.getElementById("Inner").innerHTML;
+        //html = parse.category;
+        if (document.getElementById('Inner') !=null){
+            document.getElementById('Inner').innerHTML = "";
+        }
+        var header = document.createElement("h2");
+        header.innerHTML = `<h2>Details about ${parsed.category}<\h2>`; // shares like details about snacks and mains. // but not working !? x-fix
+        var access = document.createElement("p");
+        access.innerHTML = `<p>You have requested this information ${parsed.accesses} times<\p>`;
+        access.setAttribute("id", "redline");
+        // populate table:
+        var table = document.createElement("table");
+        table.innerHTML = `<table>
+                              <tr>
+                                  <th>Item<\/th><th>Description<\/th><th>Price<\/th>
+                              <\/tr>`
+        // var name for .category:
+        parsed.category; 
+        parsed.accesses;
+        // failed console.log(price);
+        
+        //var price = parsed.details[i].toFixed(2);
+
+        //let price = price.toFixed(2);
+
+        if (parsed.details.length <= 0){
+          document.getElementById('Inner').innerHTML = "";
+        }
+        else{
+        for(var i = 0; i < parsed.details.length; i++){
+          var price = parsed.details[i].price.toFixed(2); // moved it to the right position !!!
+          // and the price name was changed in the string literal
+          var info_inIt = `<tr>
+                <td>${parsed.details[i].item}<\/td>
+                <td>${parsed.details[i].description}<\/td> 
+                <td>${price}<\/td>
+          <\/tr>`
+          // removed s from like prices, be more careful, with writing!!
+          table.innerHTML = table.innerHTML + info_inIt;
+        }
+        table.innerHTML = table.innerHTML + `<\/table>`
+        table.setAttribute("id", "SeeIt");
+        document.getElementById("Inner").append(header, access, table);
+        SeeIt();
+        }
+      }
+      function ClickForBtn(){
+
+        $('#inputStuff').collapse('show');
+      }
+        function addTip() {
+          // replaced id totalBills with inputField
+		      let firstTips =
+			        parseFloat(document.querySelector('#inputField').value || 0) ;
+		      let tips15 = (firstTips * .15);
+          //let numTips15 = tips15.toFixed(2);
+          let tips18 = firstTips * .18;
+          let tips20 = firstTips * .20;
+          let tips25 = firstTips * .25;
+			        //parseFloat(document.querySelector('#second').value || 0);
+  document.querySelector('#Tips').innerText =
+	`with 15% tip: ${(firstTips+tips15).toFixed(2)}\nwith 18% tip: ${(firstTips+tips18).toFixed(2)}\nwith\
+   20% tip: ${(firstTips+tips20).toFixed(2)}\nwith 25% tip: ${(firstTips+tips25).toFixed(2)}`;
+	} // addthem
+document.querySelectorAll("td").forEach(function (elt) {
+		new bootstrap.Tooltip(elt, {
+			title: 'Please order something and Fuck off!'
+		});
+});     
+</script>
+</body>
+<script
+	src="https://code.jquery.com/jquery-3.5.1.min.js"
+	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+	crossorigin="anonymous"></script>
+  <script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/jcanvas.js"
+	crossorigin="anonymous"></script>
+<script>
+	let yValue = 20;
+	$("#myCanvas1").drawArc({
+		layer: true,
+		x: 60, y: yValue,
+		radius: 5,
+		fillStyle: 'red',
+		mouseover: function (layer) {
+			yValue = 60 - yValue,
+			$(this).animateLayer(layer, {
+				y: yValue,
+			}); // default time: 0.4 seconds
+		},
+	});
+  let yValue2 = 20;
+	$("#myCanvas1").drawArc({
+		layer: true,
+		x: 45, y: yValue2,
+		radius: 5,
+		fillStyle: 'green',
+  
+		mouseover: function (layer) {
+			yValue2 = 30 - yValue2,
+			$(this).animateLayer(layer, {
+				y: yValue2,
+			}); // default time: 0.4 seconds
+		},    
+	});
+  $('#myCanvas1').drawRect({
+  layer: true,
+  fillStyle: '#000',
+  strokeStyle: '#333',
+  strokeWidth: 2,
+  
+  x: 50, y: 40,
+  width: 20,
+  height: 10,
+  click: function(layer) {
+    // Spin star
+    $(this).animateLayer(layer, {
+      rotate: '+=144'
+    });
+  }	
+});
+$('#myCanvas1').drawEllipse({
+  layer: true,
+  strokeStyle: '#36c',
+  
+  strokeWidth: 4,
+  x: 50, y: 60,
+  width: 10, height: 20
+});
+$('myCanvas1').drawImage({
+  source: '/u/zon-d2/ugrad/iyse222/HTML/cs316/Capturefire1.JPG',
+  x: 50, y: 50,
+  width: 80,
+  height: 100,
+  fromCenter: false
+});
+</script>
+<script src = "ADB.js">
+</script>
+</html>
